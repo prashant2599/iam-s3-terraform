@@ -26,17 +26,17 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY_ID }}
           aws-region: ap-south-1  # Specify your AWS regio
 
-      - name: Terraform Init
-        run: terraform init
+    #   - name: Terraform Init
+    #     run: terraform init
         
 
 
-      - name: Terraform Plan
-        run: terraform plan -out=plan.out
+    #   - name: Terraform Plan
+    #     run: terraform plan -out=plan.out
 
 
     
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve plan.out
+      - name: Terraform destroy
+        run: terraform destroy
 
+   
