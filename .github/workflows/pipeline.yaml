@@ -28,13 +28,18 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: S3BUCKETWITHSECUREPERMISSION
         
 
 
       - name: Terraform Plan
         run: terraform plan -out=plan.out
+        working-directory: S3BUCKETWITHSECUREPERMISSION
+
 
     
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve plan.out
+        working-directory: S3BUCKETWITHSECUREPERMISSION
+
