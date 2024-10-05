@@ -1,0 +1,16 @@
+name: Checkout Code Only
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  checkout:
+    name: 'Checkout on Self-Hosted Runner'
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
